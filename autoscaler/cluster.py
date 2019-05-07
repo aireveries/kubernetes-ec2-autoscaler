@@ -58,13 +58,13 @@ class Cluster(object):
     # this is for keeping some spare capacity around for faster
     # pod scheduling, instead of keeping the cluster at capacity
     # and having to spin up nodes for every job submission
-    TYPE_IDLE_COUNT = 5
+    TYPE_IDLE_COUNT = 0
 
     # since we pay for the full hour, don't prematurely kill instances
     # the number of minutes into the launch hour at which an instance
     # is fine to kill
     LAUNCH_HOUR_THRESHOLD = {
-        'aws': 60 * 30,
+        'aws': 60 * 2,
         'azure': 60 * 5,  # Azure is billed by the minute
     }
 
