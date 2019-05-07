@@ -17,6 +17,7 @@
     "p2.xlarge": {"cpu": 2, "memory": 65498251264, "pods": 30},
     "p2.8xlarge": {"cpu": 16, "memory": 523986010112, "pods": 30},
     "p2.16xlarge": {"cpu": 32, "memory": 785979015168, "pods": 30},
+    "p3.2xlarge": {"cpu": 4, "memory": 65498251264, "pods": 30, "nvidia.com/gpu": 1},
     "Standard_DS1": {"cpu": 1, "memory": 3758096384, "pods": 30},
     "Standard_D1_v2": {"cpu": 1, "memory": 3758096384, "pods": 30},
     "Standard_D2_v2": {"cpu": 2, "memory": 7516192768, "pods": 30},
