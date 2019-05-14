@@ -29,6 +29,7 @@ DEBUG_LOGGING_MAP = {
                    'default, this will look in all namespaces.')
 @click.option("--idle-threshold", default=3300)
 @click.option("--type-idle-threshold", default=3600*24*7)
+@click.option("--launch-hour-threshold", default=60*5)
 @click.option("--over-provision", default=5)
 @click.option("--max-scale-in-fraction", default=0.1)
 @click.option("--drain-utilization", default=0.0)
@@ -59,7 +60,7 @@ DEBUG_LOGGING_MAP = {
               count=True)
 def main(cluster_name, aws_regions, azure_resource_groups, azure_slow_scale_classes, sleep, kubeconfig,
          azure_client_id, azure_client_secret, azure_subscription_id, azure_tenant_id,
-         aws_access_key, aws_secret_key, use_aws_iam_role, pod_namespace, datadog_api_key,
+         aws_access_key, aws_secret_key, launch_hour_threshold, use_aws_iam_role, pod_namespace, datadog_api_key,
          idle_threshold, type_idle_threshold, max_scale_in_fraction, drain_utilization,
          over_provision, instance_init_time, no_scale, no_maintenance,
          slack_hook, slack_bot_token, dry_run, verbose):
@@ -88,6 +89,7 @@ def main(cluster_name, aws_regions, azure_resource_groups, azure_slow_scale_clas
                       pod_namespace=pod_namespace,
                       idle_threshold=idle_threshold,
                       instance_init_time=instance_init_time,
+                      launch_hour_threshold=launch_hour_threshold,
                       type_idle_threshold=type_idle_threshold,
                       cluster_name=cluster_name,
                       max_scale_in_fraction=max_scale_in_fraction,

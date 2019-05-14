@@ -82,7 +82,7 @@ class Cluster(object):
     def __init__(self, aws_regions, aws_access_key, aws_secret_key,
                  azure_client_id, azure_client_secret, azure_subscription_id, azure_tenant_id,
                  azure_resource_group_names, azure_slow_scale_classes, kubeconfig,
-                 idle_threshold, type_idle_threshold, pod_namespace,
+                 idle_threshold, type_idle_threshold, launch_hour_threshold, pod_namespace,
                  instance_init_time, cluster_name, notifier,
                  use_aws_iam_role=False,
                  drain_utilization_below=0.0,
@@ -121,6 +121,8 @@ class Cluster(object):
             cluster_name=cluster_name)
         self.autoscaling_timeouts = autoscaling_groups.AutoScalingTimeouts(
             self.session)
+
+        Cluster.LAUNCH_HOUR_THRESHOLD['aws'] = launch_hour_threshold
 
         azure_regions = []
         resource_groups = []
